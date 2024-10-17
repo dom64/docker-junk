@@ -1,0 +1,17 @@
+services:
+  paper:
+    image: paper
+    container_name: survival
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - ./minecraft:/minecraft/
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+   
